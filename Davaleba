@@ -1,0 +1,26 @@
+player1=(input("შეიყვანეთ სახელი"))
+#player1_number=int(input("შეიყვანეთ რიცხვები"))
+player2=(input("შეიყვანეთ სახელი"))
+player3=(input("შეიყვანეთ სახელი"))
+player4=(input("შეიყვანეთ სახელი"))
+
+
+import random
+lottery_numbers = set()
+while len(lottery_numbers) <= 5:
+    i = random.randint(1, 46)
+    lottery_numbers.add(i)
+print(lottery_numbers)
+
+players = [
+{"name": player1, "numbers": {8, 15, 1, 7, 44, 23}},
+{"name": player2, "numbers": {4, 7, 10, 13, 9, 21}},
+{"name": player3, "numbers": {23, 1, 8, 42, 5, 15}},
+{"name": player4, "numbers": {6, 8, 16, 17, 23, 35}}
+]
+
+players_len=len(players)
+for i in range(0,players_len):
+    player1 = len(lottery_numbers.intersection(players[i]['numbers']))
+    playername=players[i]['name']
+    print(f"მოთამაშე {players[i]['name']}-მ, გამოიცნო {player1} ციფრი")
